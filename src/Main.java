@@ -1,27 +1,33 @@
-import java.util.Scanner;
+import java.util.Random;
 
 public class Main {
     public static void main(String[] args) {
-        String myAge;
-        final int NUM = 50;
-        String world = "World";
-        myAge = NUM + world;
-        String name = "Введите ваше имя:";
-        System.out.print(myAge);
-        System.out.print(NUM);
-        System.out.println(world);
+        int age = 20;
+        int temp = 5;
 
-        if (NUM < 0) {
-            System.out.println("Вы сохранили отрицательное число");
-        } else if (NUM > 0) {
-            System.out.println("Вы сохранили положительное число");
-        } else {
-            System.out.println("“Вы сохранили ноль");
-        }
-        //dop
-        Scanner scanner = new Scanner(System.in);
-        System.out.println(name);
-        String name1 = scanner.next();
-        System.out.println("Здравствуй " + name1);
+        System.out.println(nameOfMethod(temp, age));
+        System.out.println(nameOfMethod(20, 6));
+        System.out.println(nameOfMethod(20, 7));
+        System.out.println(nameOfMethod(-40, 6));
+        System.out.println(nameOfMethod(25, 54));
+        System.out.println(nameOfMethod(23, 45));
+        System.out.println(generateRandomAge());
+    }
+
+    private static String nameOfMethod(int temp, int age) {
+        if (age >= 20 && age <= 45 && temp >= -20 && temp <= 30) {
+            return "можно идти гулять";
+        } else if (age > 0 && age <= 20 && temp >= 0 && temp <= 28) {
+            return "Можно идти гулять";
+        } else if (age >= 45 && temp >= -10 && temp <= 25) {
+            return "Можно идти гулять";
+        } else
+            return "Оставайся дома";
+    }
+
+    public static int generateRandomAge() {
+        Random random = new Random();
+        int x = random.nextInt(70) + 1;
+        return x;
     }
 }
